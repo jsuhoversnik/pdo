@@ -160,3 +160,29 @@ foreach ($result as $row){
     echo $row['name'].", ".$row['type'].", ".$row['color'];
 }
 
+
+//Define the query
+$sql = "SELECT * FROM petOwners
+LEFT JOIN pets
+ON petOwners.petID = pets.id;";
+
+//Prepare the statement
+$statement = $dbh->prepare($sql);
+
+//Execute the statement
+$statement->execute();
+
+//Process the result
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+echo "<table>
+        <tr>
+            <th>Id</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Pet Name</th>
+        </tr>";
+foreach ($result as $row){
+    echo "<tr><td>".$row['id']."</td><td>".$row['first']."</td><td>".$row['last']."</td><td>".$row['name']."</td></tr>";
+}
+echo "</table>";
