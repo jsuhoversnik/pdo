@@ -50,3 +50,32 @@ $statement->bindParam(':color', $color, PDO::PARAM_STR);
 $statement->execute();
 $id = $dbh->lastInsertId();
 echo "<p>Pet $id inserted successfully.</p>";
+
+
+//Bind the parameters
+$type = 'dog';
+$name = 'Rex';
+$color = 'black';
+
+$statement->bindParam(':type', $type, PDO::PARAM_STR);
+$statement->bindParam(':name', $name, PDO::PARAM_STR);
+$statement->bindParam(':color', $color, PDO::PARAM_STR);
+
+//Execute
+$statement->execute();
+$id = $dbh->lastInsertId();
+echo "<p>Pet $id inserted successfully.</p>";
+
+//Bind the parameters
+$type = 'hamster';
+$name = 'Andrew';
+$color = 'brown';
+
+$statement->bindParam(':type', $type, PDO::PARAM_STR);
+$statement->bindParam(':name', $name, PDO::PARAM_STR);
+$statement->bindParam(':color', $color, PDO::PARAM_STR);
+
+//Execute
+$statement->execute();
+$id = $dbh->lastInsertId();
+echo "<p>Pet $id inserted successfully.</p>";
