@@ -126,3 +126,20 @@ $statement->bindParam(':id',$id, PDO::PARAM_INT);
 
 //Execute
 $statement->execute();
+
+//Define the query
+$sql = "SELECT * FROM pets WHERE id = :id";
+
+//Prepare the statement
+$statement = $dbh->prepare($sql);
+
+//Bind the parameters
+$id = 3;
+$statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+//Execute the statement
+$statement->execute();
+
+//Process the result
+$row = $statement->fetch(PDO::FETCH_ASSOC);
+echo $row['name'].", ".$row['type'].", ".$row['color'];
