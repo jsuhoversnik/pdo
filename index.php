@@ -95,3 +95,20 @@ $statement->bindParam(':new', $new, PDO::PARAM_STR);
 
 //Execute
 $statement->execute();
+
+
+//Define the query
+$sql = "UPDATE pets SET color = :new
+        WHERE name = :name";
+
+//prepare the statement
+$statement = $dbh->prepare($sql);
+
+//Bind the parameters
+$name = 'Oscar';
+$new = 'brown';
+$statement->bindParam(':name', $name, PDO::PARAM_STR);
+$statement->bindParam(':new', $new, PDO::PARAM_STR);
+
+//Execute
+$statement->execute();
