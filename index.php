@@ -143,3 +143,20 @@ $statement->execute();
 //Process the result
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 echo $row['name'].", ".$row['type'].", ".$row['color'];
+
+
+//Define the query
+$sql = "SELECT * FROM pets";
+
+//Prepare the statement
+$statement = $dbh->prepare($sql);
+
+//Execute the statement
+$statement->execute();
+
+//Process the result
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row){
+    echo $row['name'].", ".$row['type'].", ".$row['color'];
+}
+
